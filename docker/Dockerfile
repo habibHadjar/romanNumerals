@@ -1,20 +1,15 @@
-FROM node:18
+FROM node:20-alpine
 
 # Créer l'utilisateur et son groupe, installer des paquets
-RUN apt-get update \
-    && apt-get install -y sudo \
-    && apt-get install -y less \
-    && apt-get install -y mycli \
-    && apt-get install -y tzdata \
-    && npm install
+WORKDIR /app
+
+COPY . .
+
+RUN npm install -g
+
+EXPOSE 4242
+
+CMD ["npm", "start"]
 
 # Fixer le fuseau horaire
 ENV TZ Europe/Paris
-
-# L'interprète par défaut
-ENV SHELL /bin/bash
-
-# Le repertoire maison par défaut
-WORKDIR app
-
-RUN /bin/bash
