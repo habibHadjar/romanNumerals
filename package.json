@@ -1,10 +1,11 @@
 {
-  "name": "gestioncyclevie",
+  "name": "gestion_cycle_vie",
   "version": "1.0.0",
   "description": "bjr",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "type": "module",
   "keywords": [],
