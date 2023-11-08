@@ -13,6 +13,12 @@ test('converts 490 to roman Numerals using api to verify the result', async () =
     expect(toRoman).toBe(fetchRoman)
 })
 
+test('converts 5 to roman Numerals using api to verify the result', async () => {
+    const toRoman = ToRomanNumeral(5)
+    const fetchRoman = await FetchRomanNumerals(5)
+    expect(toRoman).toBe(fetchRoman)
+})
+
 test('converts 1 to roman Numerals using api to verify the result', async () => {
     const toRoman = ToRomanNumeral(1)
     const fetchRoman = await FetchRomanNumerals(1)
