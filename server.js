@@ -32,7 +32,7 @@ app.post('/submit', (req, res) => {
     const romanNumeral = ToRomanNumeral(inputValue)
 
     // Render the updated form view with the result
-    res.render('home', { result: romanNumeral })
+    res.render('home', { number: inputValue, result: romanNumeral })
 });
 
 app.listen(PORT, () => {

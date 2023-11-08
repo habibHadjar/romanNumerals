@@ -1,4 +1,6 @@
 const ToRomanNumeral = (num) => {
+    if (num === 0) return;
+    
     const romanSymbols = {
         M: 1000,
         CM: 900,
