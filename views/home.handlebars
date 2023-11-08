@@ -1,1 +1,19 @@
-{{test}}
+<div class="jumbotron text-center mb-5">
+    <h1 class="display-4">Convert to Roman Numerals</h1>
+</div>
+    <div class="container mt-5">
+        <form action="/submit" method="post">
+            <div class="row">
+                <div class="col-4">
+                    <input type="number" id="number" name="number" class="form-control" placeholder="Enter a number">
+                </div>
+                <div class="col-4">
+                    <button type="submit" id="convert" class="btn btn-primary">Convert</button>
+                </div>
+                <div class="col-4">
+                    <input type="text" id="result" class="form-control" placeholder="Result" disabled
+                        value="{{result}}">
+                </div>
+            </div>
+        </form>
+    </div>
