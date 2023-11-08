@@ -1,4 +1,6 @@
 const ToArabeNumeral = (romanNumeral) => {
+    if (romanNumeral == '') return;
+    
     const romanToArabicMap = {
         I: 1,
         V: 5,
