@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.post('/submit', (req, res) => {
+app.post('/', (req, res) => {
     let inputValue = req.body.number
     inputValue = parseInt(inputValue)
     inputValue = Math.abs(inputValue)
