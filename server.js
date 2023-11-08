@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url'
 import { create } from 'express-handlebars'
 import ToRomanNumeral from './romanNumerals.js'
 import { config } from 'dotenv'
+import ToArabeNumeral from './arabeNumerals.js'
 config()
 
 const __filename = fileURLToPath(import.meta.url)
@@ -23,16 +24,30 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    let inputValue = req.body.number
-    inputValue = parseInt(inputValue)
-    inputValue = Math.abs(inputValue)
-    inputValue = Math.floor(inputValue)
-    inputValue != NaN ? inputValue : 0
+    function cleanInput(input, isArabe = true) {
+        if (isArabe) {
+            input = Math.floor(Math.abs(parseInt(input)))
+            input != NaN ? input : 0
+        } else {
+            const regex = /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/
+            if (!regex.test(input) || input == undefined) input = ''
+            input = input.toUpperCase()
+        }
+        return input
+    }
+    const arabe = cleanInput(req.body.arabe)
+    const roman = cleanInput(req.body.roman, false)
     
-    const romanNumeral = ToRomanNumeral(inputValue)
+    const result = {
+        roman: ToRomanNumeral(arabe),
+        arabe: ToArabeNumeral(roman)
+    }
+    const number = {
+        arabe: arabe,
+        roman: roman
+    }
 
-    // Render the updated form view with the result
-    res.render('home', { number: inputValue, result: romanNumeral })
+    res.render('home', { number: number, result: result })
 });
 
 app.listen(PORT, () => {
