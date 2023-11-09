@@ -1,4 +1,51 @@
-Le but de ce projet est de permettre à un utilisateur de renseigner un integer en base 10 et de récupérer l'équivalence en nombre en chiffre Romain.
+Le but initial de ce projet est de permettre à un utilisateur de renseigner un integer en base 10 et de récupérer l'équivalence en chiffre Romain.
+
+## Lancer le projet
+
+### Dev:
+#### Dépendances/Environnement:
+    - Docker
+    - docker-compose et/ou docker desktop
+#### Lancement:
+```shell
+    docker-compose up -d --build --remove-orphans
+```
+
+### Prod:
+#### Dépendances/Environnement
+    - OVH
+    - Ubuntu
+    - Apache 2
+    - Docker & Docker-Compose
+#### Lancement:
+```shell
+//Connexion SSH sur le VPS 193.70.84.157
+cd /var/www/html/romanNumerals
+git pull
+docker-compose up -d --build 
+//(le .env de la prod défini le NODE_ENV sur 'prod')
+```
+
+### Lancer les tests :
+```shell
+    docker exec -it cycle-production sh
+    cd app && npm run test
+```
+
+## TODO :
+
+- Concertation sur l'utilité de mettre en place un ou plusieurs pipeline CI-CD avec lancement des tests
+
+<hr>
+
+### DOCUMENTATION:
+
+Voir lien : 
+<u>
+<li><a href="./documentation/api.md">API</a></li>
+</u>
+    
+
 
 ## PHASE 1:
 
