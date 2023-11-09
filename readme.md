@@ -87,3 +87,7 @@ La deuxième itération va être focus sur la création de l'api rest(route, met
 La 3ème itération sera sur la mise en cache des résultats précédent. Besoin de concertation pour savoir si la mise en cache se base sur l'ip du visiteur (faire du cache de résultat par ip de visiteur).
 
  <u>Il est important de souligner que cette dernière itération n'apporte aucune valeur ajouté (pas d'appel à une API externe, pas de requête en base de donnée), à l'inverse, au vu des calculs effectées par le programme actuel, le coût sera probablement plus élevé à faire du cache (que ce soit en terme de temps de développement et de ressources utilisés par le serveur).</u>
+
+ ### Retrospective
+
+ Lien: <a href="/documentation/retrospective.md">Rétrospective</a>
