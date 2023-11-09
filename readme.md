@@ -1,4 +1,4 @@
-Le but de ce projet est de permettre à un utilisateur de renseigner un nombre en base 10 et de récupérer un nombre en chiffre Romain.
+Le but de ce projet est de permettre à un utilisateur de renseigner un integer en base 10 et de récupérer l'équivalence en nombre en chiffre Romain.
 
 ## PHASE 1:
 
@@ -27,3 +27,16 @@ Le but de ce projet est de permettre à un utilisateur de renseigner un nombre e
 - Livraison d'une version Bêta de la feature
 - Retour clients pour d'éventuels modifications supplémentaire
 - Correction éventuels et livraison "finale"
+
+
+## Cycle de vie
+
+- 08/11 La priorité à été mise sur l'inverse de la demande initial à savoir, renseigner un nombre en chiffre romain et récupérer l'équivalence avec un integer en base 10. (DONE)
+
+- 09/11 Des cas d'usage ont été rajoutés, il faut faire une API REST (Dans notre cas une route en POST), faire en sorte que la lettre O retourne 0 et ajouter du cache pour les réponses déjà joué.
+
+La 1ère itération va consister à traiter la lettre O en 0 
+La deuxième itération va être focus sur la création de l'api rest(route, method, retour)
+La 3ème itération sera sur la mise en cache des résultats précédent. Besoin de concertation pour savoir si la mise en cache se base sur l'ip du visiteur (faire du cache de résultat par ip de visiteur).
+
+ <u>Il est important de souligner que cette dernière itération n'apporte aucune valeur ajouté (pas d'appel à une API externe, pas de requête en base de donnée), à l'inverse, au vu des calculs effectées par le programme actuel, le coût sera probablement plus élevé à faire du cache (que ce soit en terme de temps de développement et de ressources utilisés par le serveur).</u>
