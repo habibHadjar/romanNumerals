@@ -7,6 +7,6 @@ Route: "/api/convertToArabe/"
 Corps: "{'roman': 'string'}"
 Réponse: "{
             "success": boolean,
-            "results": {"roman": integer},
-            "errors": null|array
+            "result": {"param": string, "result": integer} | null,
+            "error": null|string
         }"

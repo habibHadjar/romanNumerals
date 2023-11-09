@@ -26,15 +26,35 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/convertToRoman/', (req, res) => {
-    const arabe = cleanInput(req.body.arabe)
-    const romanResult = ConvertToRomanNumeral(arabe)
-    res.json({ arabe: arabe, result: romanResult })
+    let data
+    try {
+        const param = cleanInput(req.body.param)
+        const romanResult = ConvertToRomanNumeral(param)
+        data = {
+            success: true,
+            result: { param: param, result: romanResult },
+            errors: null
+        }
+    } catch (error) {
+        data = { success: false, result: null, error: error.message }
+    }
+    res.json(data)
 })
 
 app.post('/api/convertToArabe/', (req, res) => {
-    const roman = cleanInput(req.body.roman, false)
-    const arabeResult = ConvertToArabeNumeral(roman)
-    res.json({ roman: roman, result: arabeResult })
+    let data
+    try {
+        const param = cleanInput(req.body.param, false)
+        const arabeResult = ConvertToArabeNumeral(param)
+        data = {
+            success: true,
+            result: { param: param, result: arabeResult },
+            errors: null
+        }
+    } catch (error) {
+        data = { success: false, result: null, error: error.message }        
+    }
+    res.json(data)
 })
 
 app.listen(PORT, () => {

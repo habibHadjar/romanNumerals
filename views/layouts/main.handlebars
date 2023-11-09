@@ -89,19 +89,19 @@
 
         convertToRomanButton.addEventListener('click', () => {
             const arabeValue = arabeInput.value
-            fetchConversionResult('/api/convertToRoman/', { arabe: arabeValue })
+            fetchConversionResult('/api/convertToRoman/', { param: arabeValue })
                 .then(data => {
-                    arabeInput.value = data.arabe
-                    resultRomanInput.value = data.result
+                    arabeInput.value = data.result.param
+                    resultRomanInput.value = data.result.result
                 })
         })
 
         convertToArabeButton.addEventListener('click', () => {
             const romanValue = romanInput.value
-            fetchConversionResult('/api/convertToArabe/', { roman: romanValue })
+            fetchConversionResult('/api/convertToArabe/', { param: romanValue })
                 .then(data => {
-                    romanInput.value = data.roman
-                    resultArabeInput.value = data.result
+                    romanInput.value = data.result.param
+                    resultArabeInput.value = data.result.result
                 })
         })
 
