@@ -1,6 +1,6 @@
-const ToRomanNumeral = (num) => {
-    if (num === 0) return;
-    
+const ConvertToRomanNumeral = (num) => {
+    if (num === 0) return
+
     const romanSymbols = {
         M: 1000,
         CM: 900,
@@ -15,20 +15,18 @@ const ToRomanNumeral = (num) => {
         V: 5,
         IV: 4,
         I: 1
-    };
-    
-    let result = '';
-    
+    }
+
+    let result = ''
+
     for (const symbol in romanSymbols) {
         while (num >= romanSymbols[symbol]) {
-            result += symbol;
-            num -= romanSymbols[symbol];
+            result += symbol
+            num -= romanSymbols[symbol]
         }
     }
-    
-    return result;
+
+    return result
 }
 
-export default ToRomanNumeral;
-
-// console.log(ToRomanNumeral(process.argv[2]));
+export default ConvertToRomanNumeral
