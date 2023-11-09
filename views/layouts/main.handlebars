@@ -14,10 +14,99 @@
 </head>
 
 <body>
-    {{{body}}}
+    <div class="jumbotron text-center mb-5">
+        <h1 class="display-4">Roman numerals conversion</h1>
+    </div>
+    <div class="container">
+        <h1 class="text-center mb-5">Convert from arabe to roman</h1>
+
+        <div class="row">
+            <div class="col-4">
+                <input type="number" id="arabeInput" name="arabeInput" class="form-control"
+                    placeholder="Enter a number">
+            </div>
+            <div class="col-4">
+                <button id="convertToRoman" class="btn btn-primary">Convert</button>
+            </div>
+            <div class="col-4">
+                <input type="text" id="romanResult" class="form-control" placeholder="Result" disabled>
+            </div>
+        </div>
+
+    </div>
+    <hr class="my-5">
+    <div class="container">
+        <h1 class="text-center mb-5">Convert from roman to arabe</h1>
+
+        <div class="row">
+            <div class="col-4">
+                <input type="text" id="romanInput" name="romanInput" class="form-control"
+                    placeholder="Enter a roman number">
+            </div>
+            <div class="col-4">
+                <button id="convertToArabe" class="btn btn-primary">Convert</button>
+            </div>
+            <div class="col-4">
+                <input type="text" id="arabeResult" class="form-control" placeholder="Result" disabled>
+            </div>
+        </div>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const convertToRomanButton = document.getElementById('convertToRoman')
+        const convertToArabeButton = document.getElementById('convertToArabe')
+        const arabeInput = document.getElementById('arabeInput')
+        const romanInput = document.getElementById('romanInput')
+        const resultRomanInput = document.getElementById('romanResult')
+        const resultArabeInput = document.getElementById('arabeResult')
+
+        // INPUT VALIDATION - using this regex for roman input /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/, and this for arabe input /^[0-9]+$/
+        arabeInput.addEventListener('input', () => {
+            if (!/^[0-9]+$/.test(arabeInput.value)) {
+                arabeInput.classList.add('is-invalid')
+                convertToRomanButton.disabled = true
+            } else {
+                arabeInput.classList.remove('is-invalid')
+                convertToRomanButton.disabled = false
+            }
+        })
+        
+
+        convertToRomanButton.addEventListener('click', () => {
+            const arabeValue = arabeInput.value
+            fetchConversionResult('/api/convertToRoman/', { arabe: arabeValue })
+                .then(data => {
+                    arabeInput.value = data.arabe
+                    resultRomanInput.value = data.result
+                })
+        })
+
+        convertToArabeButton.addEventListener('click', () => {
+            const romanValue = romanInput.value
+            fetchConversionResult('/api/convertToArabe/', { roman: romanValue })
+                .then(data => {
+                    romanInput.value = data.roman
+                    resultArabeInput.value = data.result
+                })
+        })
+
+        function fetchConversionResult(endpoint, data) {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+            return fetch(endpoint, options)
+                .then(response => response.json())
+        }
+    });
+</script>
 
 </html>
