@@ -1,5 +1,6 @@
-const ConvertToRomanNumeral = (num) => {
-    if (num === 0) return
+const ConvertToRomanNumeral = (value) => {
+    if (value == '') return ''
+    if (value === 0) return 'O'
 
     const romanSymbols = {
         M: 1000,
@@ -20,9 +21,9 @@ const ConvertToRomanNumeral = (num) => {
     let result = ''
 
     for (const symbol in romanSymbols) {
-        while (num >= romanSymbols[symbol]) {
+        while (value >= romanSymbols[symbol]) {
             result += symbol
-            num -= romanSymbols[symbol]
+            value -= romanSymbols[symbol]
         }
     }
 

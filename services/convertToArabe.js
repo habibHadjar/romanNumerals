@@ -1,6 +1,6 @@
-const ConvertToArabeNumeral = (romanNumeral) => {
-    if (romanNumeral == '') return ''
-    if (romanNumeral == 'O') return 0
+const ConvertToArabeNumeral = (value) => {
+    if (value == '') return ''
+    if (value == 'O') return 0
 
     const romanToArabicMap = {
         I: 1,
@@ -15,8 +15,8 @@ const ConvertToArabeNumeral = (romanNumeral) => {
     let total = 0
     let previousValue = 0
 
-    for (let i = romanNumeral.length - 1; i >= 0; i--) {
-        const currentValue = romanToArabicMap[romanNumeral[i]]
+    for (let i = value.length - 1; i >= 0; i--) {
+        const currentValue = romanToArabicMap[value[i]]
 
         if (currentValue < previousValue) {
             total -= currentValue
