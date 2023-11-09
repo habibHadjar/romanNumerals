@@ -20,8 +20,9 @@ const ConvertToRomanNumeral = (value) => {
 
     let result = ''
 
-    for (const symbol in romanSymbols) {
+    for (const symbol in romanSymbols) { // For each letter
         while (value >= romanSymbols[symbol]) {
+            // if the number is greater than the letter value, concat the letter and substract the value from the number
             result += symbol
             value -= romanSymbols[symbol]
         }
