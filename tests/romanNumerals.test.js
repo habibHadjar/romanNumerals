@@ -8,25 +8,25 @@ const FetchRomanNumerals = async (num) => {
 }
 
 test('converts 490 to roman Numerals using api to verify the result', async () => {
-    const toRoman = ConvertToRomanNumeral(490)
-    const fetchRoman = await FetchRomanNumerals(490)
-    expect(toRoman).toBe(fetchRoman)
+    const conversionValue = ConvertToRomanNumeral(490)
+    const referenceValue = await FetchRomanNumerals(490)
+    expect(conversionValue).toBe(referenceValue)
 })
 
 test('converts 5 to roman Numerals using api to verify the result', async () => {
-    const toRoman = ConvertToRomanNumeral(5)
-    const fetchRoman = await FetchRomanNumerals(5)
-    expect(toRoman).toBe(fetchRoman)
+    const conversionValue = ConvertToRomanNumeral(5)
+    const referenceValue = await FetchRomanNumerals(5)
+    expect(conversionValue).toBe(referenceValue)
 })
 
 test('converts 1 to roman Numerals using api to verify the result', async () => {
-    const toRoman = ConvertToRomanNumeral(1)
-    const fetchRoman = await FetchRomanNumerals(1)
-    expect(toRoman).toBe(fetchRoman)
+    const conversionValue = ConvertToRomanNumeral(1)
+    const referenceValue = await FetchRomanNumerals(1)
+    expect(conversionValue).toBe(referenceValue)
 })
 
 test('converts 0 to roman Numerals using api to verify the result', async () => {
-    const toRoman = ConvertToRomanNumeral(0)
-    const fetchRoman = await FetchRomanNumerals(0)
-    expect(toRoman).toBe(fetchRoman)
+    const conversionValue = ConvertToRomanNumeral(0)
+    const referenceValue = await FetchRomanNumerals(0)
+    expect(conversionValue).toBe(referenceValue)
 })

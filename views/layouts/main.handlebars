@@ -67,7 +67,9 @@
         // const resultRomanInput = document.getElementById('romanResult')
         const resultArabeInput = document.getElementById('arabeResult')
 
-        // INPUT VALIDATION - using this regex for roman input /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/ or single 'O', and this for arabe input /^[0-9]+$/
+
+        /********************************************** INPUT VALIDATION **********************************************/
+
         // arabeInput.addEventListener('input', () => {
         //     if (!/^[0-9]+$/.test(arabeInput.value)) {
         //         arabeInput.classList.add('is-invalid')
@@ -88,6 +90,10 @@
             }
         })
         
+        /********************************************** INPUT VALIDATION **********************************************/
+
+
+        /********************************************** SUBMIT **********************************************/
 
         // convertToRomanButton.addEventListener('click', () => {
         //     const arabeValue = arabeInput.value
@@ -118,6 +124,9 @@
             return fetch(endpoint, options)
                 .then(response => response.json())
         }
+
+        /********************************************** SUBMIT **********************************************/
+
     });
 </script>
 
